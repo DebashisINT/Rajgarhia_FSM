@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "16916673894",
+    "project_id": "rajgarhia-fsm",
+    "storage_bucket": "rajgarhia-fsm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16916673894:android:cc6b49670550d908cfc4a7",
+        "android_client_info": {
+          "package_name": "com.rajgarhiafsm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpjIZGcCmz5eB7W6tIzUQTNmPj8d12n10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
