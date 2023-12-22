@@ -2686,6 +2686,7 @@ class NearByShopsListFragment : BaseFragment(), View.OnClickListener {
         val addShopReqData = AddShopRequestData()
         addShopReqData.session_token = Pref.session_token
         addShopReqData.address = addShopData.address
+        addShopReqData.actual_address = addShopData.address
         addShopReqData.owner_contact_no = addShopData.ownerContactNumber
         addShopReqData.owner_email = addShopData.ownerEmailId
         addShopReqData.owner_name = addShopData.ownerName
@@ -2765,7 +2766,7 @@ class NearByShopsListFragment : BaseFragment(), View.OnClickListener {
         addShopReqData.dealer_id = addShopData.dealer_id
         addShopReqData.beat_id = addShopData.beat_id
         addShopReqData.assigned_to_shop_id = addShopData.assigned_to_shop_id
-        addShopReqData.actual_address = addShopData.actual_address
+        addShopReqData.actual_address = addShopData.address
 
 
         addShopReqData.GSTN_Number = addShopData.gstN_Number

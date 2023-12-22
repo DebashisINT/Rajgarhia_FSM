@@ -6067,11 +6067,12 @@ class AddShopFragment : BaseFragment(), View.OnClickListener {
         if (addShopData.type == "1") {
             amount = ""
             assignedToShopId = ""
-            if (TextUtils.isEmpty(assignedToPPId)) {
+            if (TextUtils.isEmpty(assignedToPPId) && Pref.isCustomerFeatureEnable == false) {
                 (mContext as DashboardActivity).showSnackMessage("Please select assigned to " + Pref.ppText)
                 BaseActivity.isApiInitiated = false
                 return
-            } else if (Pref.isShowDealerForDD && dealerId.isEmpty()) {
+            }
+            else if (Pref.isShowDealerForDD && dealerId.isEmpty()) {
                 (mContext as DashboardActivity).showSnackMessage("Please select any GPTPL/Distributor")
                 BaseActivity.isApiInitiated = false
                 return
@@ -6093,11 +6094,12 @@ class AddShopFragment : BaseFragment(), View.OnClickListener {
             amount = ""
             entityId = ""
             assignedToShopId = ""
-            if (TextUtils.isEmpty(assignedToPPId)) {
+            if (TextUtils.isEmpty(assignedToPPId) && Pref.isCustomerFeatureEnable == false) {
                 (mContext as DashboardActivity).showSnackMessage("Please select assigned to " + Pref.ppText)
                 BaseActivity.isApiInitiated = false
                 return
-            } else if (Pref.isShowDealerForDD && dealerId.isEmpty()) {
+            }
+            else if (Pref.isShowDealerForDD && dealerId.isEmpty()) {
                 (mContext as DashboardActivity).showSnackMessage("Please select any GPTPL/Distributor")
                 BaseActivity.isApiInitiated = false
                 return
@@ -6236,7 +6238,15 @@ class AddShopFragment : BaseFragment(), View.OnClickListener {
                 }
                 shopDataModel.ownerName = ""
             }
-        }
+        }else{//test code begin
+            if (!(ownerName.text!!.trim().isBlank())){
+                shopDataModel.ownerName = ownerName.text.toString()
+            }else{
+                BaseActivity.isApiInitiated = false
+                (mContext as DashboardActivity).showSnackMessage(getString(R.string.contactname_error))
+                return
+            }
+        }//test code end
 
 
         if(Pref.IsnewleadtypeforRuby && addShopData.type.equals("16")){

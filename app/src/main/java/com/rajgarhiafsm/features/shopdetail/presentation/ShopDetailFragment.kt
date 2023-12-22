@@ -112,6 +112,7 @@ class ShopDetailFragment : BaseFragment(), View.OnClickListener {
     private lateinit var shop_type_TV: AppCustomTextView
     private lateinit var assigned_to_TV: AppCustomTextView
     private lateinit var iv_category_dropdown_icon: ImageView
+    private lateinit var rl_shop_dtls_model_root: RelativeLayout
 
     private lateinit var popup_image: ImageView
     private lateinit var overlay_rl: FrameLayout
@@ -525,6 +526,15 @@ class ShopDetailFragment : BaseFragment(), View.OnClickListener {
         alternate_no_TV = view.findViewById(R.id.alternate_no_TV)
 
         whatsappp_no_TV = view.findViewById(R.id.whatsappp_no_TV)
+
+        //test code begin
+        rl_shop_dtls_model_root = view.findViewById(R.id.rl_shop_dtls_model_root)
+        if(Pref.isModelEnable){
+            rl_shop_dtls_model_root.visibility = View.VISIBLE
+        }else{
+            rl_shop_dtls_model_root.visibility = View.GONE
+        }
+        //test code end
 
         shop_name_label_TV.text = "Name"
 
@@ -4830,7 +4840,7 @@ class ShopDetailFragment : BaseFragment(), View.OnClickListener {
             (mContext as DashboardActivity).showSnackMessage(getString(R.string.valid_amount_error))
         else if (Pref.isAreaVisible && (Pref.isAreaMandatoryInPartyCreation && TextUtils.isEmpty(areaId)))
             (mContext as DashboardActivity).showSnackMessage(getString(R.string.error_select_area))
-        else if (Pref.isCustomerFeatureEnable && TextUtils.isEmpty(modelId))
+        else if (Pref.isCustomerFeatureEnable && TextUtils.isEmpty(modelId)&& Pref.isModelEnable)//test code begin
             (mContext as DashboardActivity).showSnackMessage(getString(R.string.error_select_model))
         else if (Pref.isCustomerFeatureEnable && TextUtils.isEmpty(stageId))
             (mContext as DashboardActivity).showSnackMessage(getString(R.string.error_select_stage))
